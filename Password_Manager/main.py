@@ -149,9 +149,9 @@ def save_password():
                     data = json.load(data_file)
                     data.update(new_data)
                 with open(
-                    "data.json", mode="w"
+                    "data.json", mode="w+"
                 ) as data_file:
-                    json.dump(new_data, data_file, indent=4)
+                    json.update(new_data, data_file, indent=4)
             finally:
                 website_entry.delete(0, tkinter.END)
                 password_entry.delete(0, tkinter.END)
