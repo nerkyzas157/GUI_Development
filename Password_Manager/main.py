@@ -143,15 +143,12 @@ def save_password():
                 ) as data_file:
                     json.dump(new_data, data_file, indent=4)
             else:
+                data.update(new_data)
                 with open(
-                    "data.json", mode="r"
+                    "Completed\\Intermediate\\Day_29_30_Password_Manager\\data.json",
+                    mode="w",
                 ) as data_file:
-                    data = json.load(data_file)
-                    data.update(new_data)
-                with open(
-                    "data.json", mode="w+"
-                ) as data_file:
-                    json.update(new_data, data_file, indent=4)
+                    json.dump(data, data_file, indent=4)
             finally:
                 website_entry.delete(0, tkinter.END)
                 password_entry.delete(0, tkinter.END)
